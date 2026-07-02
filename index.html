@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare DNS Aggregator</title>
+    <link rel="stylesheet" href="site-utils/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>🌐 Cloudflare DNS Aggregator</h1>
+                <p class="subtitle">Manage your GitHub Pages deployments with custom domains</p>
+            </div>
+        </header>
+
+        <div class="tabs-nav">
+            <button class="tab-btn active" data-tab="sites">
+                📍 Sites
+            </button>
+            <button class="tab-btn" data-tab="documentation">
+                📚 Documentation
+            </button>
+        </div>
+
+        <!-- Sites Tab -->
+        <div id="sites" class="tab-content active">
+            <div class="sites-header">
+                <h2>Deployed Sites</h2>
+                <p>All your GitHub Pages sites configured with custom subdomains</p>
+            </div>
+
+            <div class="sites-grid">
+                <div class="site-card">
+                    <div class="site-header">
+                        <h3>AI Dictionary</h3>
+                        <span class="status-badge active">Active</span>
+                    </div>
+                    <div class="site-details">
+                        <div class="detail-row">
+                            <span class="label">Repository:</span>
+                            <span class="value">claude-practice</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">GitHub Pages:</span>
+                            <a href="https://eduard15x.github.io/claude-practice/" target="_blank" class="link">
+                                eduard15x.github.io/claude-practice
+                            </a>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Custom Domain:</span>
+                            <a href="https://claude-practice.devuard.com" target="_blank" class="link">
+                                claude-practice.devuard.com
+                            </a>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Description:</span>
+                            <span class="value">Learning dictionary for AI terminology and concepts</span>
+                        </div>
+                    </div>
+                    <div class="site-actions">
+                        <a href="https://github.com/eduard15x/claude-practice" class="btn btn-secondary" target="_blank">View Repo</a>
+                        <a href="https://claude-practice.devuard.com" class="btn btn-primary" target="_blank">Visit Site</a>
+                    </div>
+                </div>
+
+                <div class="site-card">
+                    <div class="site-header">
+                        <h3>AWS Learning Hub</h3>
+                        <span class="status-badge active">Active</span>
+                    </div>
+                    <div class="site-details">
+                        <div class="detail-row">
+                            <span class="label">Repository:</span>
+                            <span class="value">aws-practice</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">GitHub Pages:</span>
+                            <a href="https://eduard15x.github.io/aws-practice/" target="_blank" class="link">
+                                eduard15x.github.io/aws-practice
+                            </a>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Custom Domain:</span>
+                            <a href="https://aws-practice.devuard.com" target="_blank" class="link">
+                                aws-practice.devuard.com
+                            </a>
+                        </div>
+                        <div class="detail-row">
+                            <span class="label">Description:</span>
+                            <span class="value">Organized learning resource for AWS services and concepts</span>
+                        </div>
+                    </div>
+                    <div class="site-actions">
+                        <a href="https://github.com/eduard15x/aws-practice" class="btn btn-secondary" target="_blank">View Repo</a>
+                        <a href="https://aws-practice.devuard.com" class="btn btn-primary" target="_blank">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-site-section">
+                <h3>Add New Site</h3>
+                <p>To add a new site to this list, you need to:</p>
+                <ol>
+                    <li>Create a new GitHub repository with your site code</li>
+                    <li>Enable GitHub Pages in the repository settings</li>
+                    <li>Follow the Cloudflare documentation below to configure your DNS</li>
+                    <li>Edit this page to add your site to the list</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Documentation Tab -->
+        <div id="documentation" class="tab-content">
+            <div class="doc-header">
+                <h2>📚 Cloudflare DNS Setup Guide</h2>
+                <p>Complete beginner-friendly guide to set up custom domains for GitHub Pages using Cloudflare</p>
+            </div>
+
+            <div class="doc-content">
+                <!-- What is Cloudflare -->
+                <section class="doc-section">
+                    <h3>What is Cloudflare and DNS?</h3>
+                    <p><strong>Cloudflare</strong> is a service that manages your domain's DNS (Domain Name System). Think of DNS as a phone book for the internet - it translates human-readable domain names (like claude-practice.devuard.com) into computer-readable addresses (like GitHub's servers).</p>
+                    <p><strong>Why use Cloudflare?</strong></p>
+                    <ul>
+                        <li>✅ Easy-to-use dashboard for managing all your domains</li>
+                        <li>✅ Free plan with excellent features</li>
+                        <li>✅ Reliable and fast DNS resolution worldwide</li>
+                        <li>✅ Additional security features</li>
+                        <li>✅ Perfect for connecting multiple GitHub Pages sites to one domain</li>
+                    </ul>
+                </section>
+
+                <!-- Prerequisites -->
+                <section class="doc-section">
+                    <h3>Prerequisites</h3>
+                    <p>Before you start, make sure you have:</p>
+                    <ul>
+                        <li>✅ A GitHub account with a repository</li>
+                        <li>✅ GitHub Pages enabled on your repository</li>
+                        <li>✅ A domain name (e.g., devuard.com)</li>
+                        <li>✅ A Cloudflare account (free)</li>
+                        <li>✅ Your domain added to Cloudflare</li>
+                    </ul>
+                </section>
+
+                <!-- Step 1 -->
+                <section class="doc-section">
+                    <h3>Step 1: Verify Your Repository is Ready</h3>
+                    <p><strong>Before configuring DNS, make sure your GitHub Pages site is live:</strong></p>
+                    <div class="step-box">
+                        <h4>How to check if GitHub Pages is enabled:</h4>
+                        <ol>
+                            <li>Go to your GitHub repository</li>
+                            <li>Click on <code>Settings</code> (gear icon)</li>
+                            <li>Scroll down to <code>Pages</code> section on the left sidebar</li>
+                            <li>You should see a blue banner saying "Your site is published at https://YOUR_USERNAME.github.io/REPO_NAME"</li>
+                            <li>If not, select "Deploy from a branch" and choose your branch (master/main)</li>
+                        </ol>
+                        <p><strong>✅ Success:</strong> You can now access your site at the GitHub Pages URL</p>
+                    </div>
+                </section>
+
+                <!-- Step 2 -->
+                <section class="doc-section">
+                    <h3>Step 2: Add Your Domain to Cloudflare</h3>
+                    <div class="step-box">
+                        <h4>If you haven't already added your domain to Cloudflare:</h4>
+                        <ol>
+                            <li>Go to <a href="https://dash.cloudflare.com" target="_blank">Cloudflare Dashboard</a></li>
+                            <li>Click <code>Add a Site</code></li>
+                            <li>Enter your domain name (e.g., devuard.com)</li>
+                            <li>Choose the Free plan</li>
+                            <li>Follow the steps to update your domain's nameservers at your registrar</li>
+                            <li>Wait for DNS propagation (can take up to 48 hours, usually faster)</li>
+                        </ol>
+                        <p><strong>📝 Note:</strong> Nameservers are like the address of the DNS service. You're telling your registrar to use Cloudflare's nameservers.</p>
+                    </div>
+                </section>
+
+                <!-- Step 3 -->
+                <section class="doc-section">
+                    <h3>Step 3: Create a CNAME Record in Cloudflare</h3>
+                    <p><strong>This is the key step that connects your subdomain to GitHub Pages!</strong></p>
+                    <div class="step-box">
+                        <h4>What is a CNAME Record?</h4>
+                        <p>A CNAME (Canonical Name) record is like a forwarding address. It says "when someone visits subdomain.devuard.com, send them to USERNAME.github.io"</p>
+
+                        <h4>How to create a CNAME record:</h4>
+                        <ol>
+                            <li>Go to <a href="https://dash.cloudflare.com" target="_blank">Cloudflare Dashboard</a></li>
+                            <li>Select your domain (devuard.com)</li>
+                            <li>Click on <code>DNS</code> in the left menu</li>
+                            <li>Click <code>+ Add record</code> button</li>
+                            <li>Fill in the form:
+                                <div class="code-block">
+Type: <strong>CNAME</strong>
+Name: <strong>claude-practice</strong> (or whatever subdomain you want)
+Target: <strong>eduard15x.github.io</strong> (your GitHub Pages URL)
+TTL: <strong>Auto</strong>
+Proxy status: <strong>Proxied</strong> (orange cloud icon)
+                                </div>
+                            </li>
+                            <li>Click <code>Save</code></li>
+                        </ol>
+                        <p><strong>📝 Example:</strong> If you create a CNAME record with Name "claude-practice" pointing to "eduard15x.github.io", then claude-practice.devuard.com will show your GitHub Pages site.</p>
+                    </div>
+                </section>
+
+                <!-- Step 4 -->
+                <section class="doc-section">
+                    <h3>Step 4: Configure Custom Domain in GitHub</h3>
+                    <p><strong>Now tell GitHub about your custom domain:</strong></p>
+                    <div class="step-box">
+                        <h4>Steps:</h4>
+                        <ol>
+                            <li>Go to your GitHub repository</li>
+                            <li>Click <code>Settings</code></li>
+                            <li>Go to <code>Pages</code> section</li>
+                            <li>Find "Custom domain" field</li>
+                            <li>Enter your subdomain (e.g., claude-practice.devuard.com)</li>
+                            <li>Click <code>Save</code></li>
+                            <li>GitHub will verify the DNS record (this may take a few minutes)</li>
+                            <li>Check the "Enforce HTTPS" option (for security)</li>
+                        </ol>
+                        <p><strong>✅ Success:</strong> Your site is now accessible at your custom domain!</p>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting -->
+                <section class="doc-section">
+                    <h3>Troubleshooting Common Issues</h3>
+
+                    <h4>❌ DNS not resolving / Site not accessible</h4>
+                    <ul>
+                        <li><strong>Wait longer:</strong> DNS propagation can take up to 48 hours</li>
+                        <li><strong>Check CNAME record:</strong> Make sure the CNAME record is created correctly in Cloudflare</li>
+                        <li><strong>Verify GitHub Pages:</strong> Make sure your site works at the original GitHub URL first</li>
+                        <li><strong>Clear browser cache:</strong> Press Ctrl+Shift+Delete and clear cache, then try again</li>
+                    </ul>
+
+                    <h4>❌ GitHub shows "DNS check failed"</h4>
+                    <ul>
+                        <li><strong>Wait a bit more:</strong> DNS needs time to propagate</li>
+                        <li><strong>Check spelling:</strong> Make sure your subdomain spelling matches exactly in both Cloudflare and GitHub</li>
+                        <li><strong>Verify CNAME is proxied:</strong> In Cloudflare, make sure the cloud icon is orange (Proxied), not gray</li>
+                    </ul>
+
+                    <h4>❌ HTTPS certificate not working</h4>
+                    <ul>
+                        <li><strong>Check enforcement:</strong> Make sure "Enforce HTTPS" is checked in GitHub Pages settings</li>
+                        <li><strong>Wait for certificate:</strong> This can take 30 minutes to an hour</li>
+                        <li><strong>Cloudflare SSL:</strong> Make sure Cloudflare SSL/TLS is set to "Flexible" or "Full"</li>
+                    </ul>
+                </section>
+
+                <!-- Quick Reference -->
+                <section class="doc-section">
+                    <h3>Quick Reference: DNS Record Setup</h3>
+                    <div class="reference-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>What you want</th>
+                                    <th>Record Type</th>
+                                    <th>Name</th>
+                                    <th>Target</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Subdomain for GitHub Pages</td>
+                                    <td>CNAME</td>
+                                    <td>claude-practice</td>
+                                    <td>eduard15x.github.io</td>
+                                </tr>
+                                <tr>
+                                    <td>Another subdomain</td>
+                                    <td>CNAME</td>
+                                    <td>aws-practice</td>
+                                    <td>eduard15x.github.io</td>
+                                </tr>
+                                <tr>
+                                    <td>Apex domain (@)</td>
+                                    <td>A</td>
+                                    <td>@</td>
+                                    <td>185.199.108.153 (and 3 more)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Tips -->
+                <section class="doc-section">
+                    <h3>💡 Pro Tips</h3>
+                    <ul>
+                        <li><strong>Use subdomains for multiple sites:</strong> You can create as many CNAME records as you want, all pointing to your GitHub Pages URL</li>
+                        <li><strong>Test locally first:</strong> Always test your GitHub Pages site before adding custom domain</li>
+                        <li><strong>Enable HTTPS:</strong> Always check "Enforce HTTPS" in GitHub settings for security</li>
+                        <li><strong>Keep it organized:</strong> Use meaningful subdomain names (claude-practice, aws-practice, etc.)</li>
+                        <li><strong>Save your DNS records:</strong> Keep a note of all your CNAME records for reference</li>
+                    </ul>
+                </section>
+
+                <!-- Summary -->
+                <section class="doc-section doc-summary">
+                    <h3>✨ Summary</h3>
+                    <p><strong>The complete workflow:</strong></p>
+                    <ol style="font-weight: 500;">
+                        <li>Create GitHub repository with your code</li>
+                        <li>Enable GitHub Pages (you get a .github.io URL)</li>
+                        <li>Create CNAME record in Cloudflare (subdomain → github.io URL)</li>
+                        <li>Add custom domain in GitHub settings</li>
+                        <li>Wait for DNS to propagate</li>
+                        <li>Visit your custom domain - it works! 🎉</li>
+                    </ol>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="site-utils/script.js"></script>
+</body>
+</html>
