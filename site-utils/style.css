@@ -5,27 +5,29 @@
 }
 
 :root {
-    --primary-color: #f37335;
-    --primary-dark: #e85d2d;
-    --secondary-color: #0051ba;
-    --accent-color: #f59e0b;
-    --text-dark: #1a202c;
-    --text-gray: #4a5568;
-    --text-light: #718096;
-    --bg-white: #ffffff;
-    --bg-light: #f7fafc;
-    --bg-lighter: #edf2f7;
-    --border-color: #e2e8f0;
+    --primary-color: #00d9ff;
+    --primary-glow: #00f5ff;
+    --secondary-color: #a855f7;
+    --accent-color: #ff006e;
+    --accent-warm: #ff9500;
+    --text-white: #ffffff;
+    --text-light: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --bg-dark: #0a0e27;
+    --bg-darker: #05080f;
+    --bg-card: #1a1f3a;
+    --bg-card-hover: #232d52;
+    --border-color: #2a3f5f;
     --success-color: #10b981;
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+    color: var(--text-light);
     line-height: 1.6;
     min-height: 100vh;
 }
@@ -38,25 +40,48 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b4a 100%);
-    color: white;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #1a2847 0%, #2d1b4e 50%, #1a1f3a 100%);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 16px;
     padding: 3rem 2rem;
     margin-bottom: 2rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.2), var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
 }
 
 .header-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
     letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-glow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .header .subtitle {
     font-size: 1.1rem;
-    opacity: 0.95;
+    opacity: 0.9;
     font-weight: 400;
+    color: var(--text-light);
 }
 
 /* Tabs Navigation */
@@ -64,11 +89,12 @@ body {
     display: flex;
     gap: 0.5rem;
     margin-bottom: 2rem;
-    background: white;
-    border-radius: 10px;
-    padding: 0.5rem;
-    box-shadow: var(--shadow-sm);
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 0.6rem;
+    box-shadow: var(--shadow-md);
     flex-wrap: wrap;
+    border: 1px solid var(--border-color);
 }
 
 .tab-btn {
@@ -77,24 +103,24 @@ body {
     padding: 1rem 1.5rem;
     border: none;
     background: transparent;
-    color: var(--text-gray);
+    color: var(--text-muted);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     border-radius: 8px;
     transition: all 0.3s ease;
-    border-bottom: 3px solid transparent;
 }
 
 .tab-btn:hover {
-    background: var(--bg-light);
-    color: var(--text-dark);
+    background: rgba(0, 217, 255, 0.1);
+    color: var(--primary-color);
 }
 
 .tab-btn.active {
-    background: linear-gradient(135deg, rgba(243, 115, 53, 0.1), rgba(255, 107, 74, 0.1));
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(168, 85, 247, 0.2));
     color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
+    border: 1px solid rgba(0, 217, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 }
 
 /* Tab Content */
@@ -126,12 +152,13 @@ body {
 .sites-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
 }
 
 .sites-header p {
     font-size: 1.05rem;
-    color: var(--text-light);
+    color: var(--text-muted);
 }
 
 .sites-grid {
@@ -142,18 +169,37 @@ body {
 }
 
 .site-card {
-    background: white;
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 1.8rem;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.site-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .site-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3), var(--shadow-lg);
     border-color: var(--primary-color);
+    background: var(--bg-card-hover);
+}
+
+.site-card:hover::before {
+    opacity: 1;
 }
 
 .site-header {
@@ -167,7 +213,7 @@ body {
 
 .site-header h3 {
     font-size: 1.4rem;
-    color: var(--text-dark);
+    color: var(--text-white);
     margin: 0;
 }
 
@@ -179,11 +225,9 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.status-badge.active {
-    background: #dcfce7;
+    background: rgba(16, 185, 129, 0.2);
     color: var(--success-color);
+    border: 1px solid var(--success-color);
 }
 
 .site-details {
@@ -198,27 +242,31 @@ body {
 
 .detail-row .label {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--primary-color);
     margin-bottom: 0.25rem;
     font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
 }
 
 .detail-row .value {
-    color: var(--text-gray);
+    color: var(--text-light);
     font-size: 0.95rem;
 }
 
 .detail-row .link {
-    color: var(--primary-color);
+    color: var(--primary-glow);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
     word-break: break-all;
 }
 
 .detail-row .link:hover {
-    color: var(--primary-dark);
+    color: var(--accent-warm);
     text-decoration: underline;
+    text-shadow: 0 0 10px rgba(255, 149, 0, 0.5);
 }
 
 .site-actions {
@@ -228,9 +276,9 @@ body {
 
 .btn {
     flex: 1;
-    padding: 0.7rem 1rem;
+    padding: 0.8rem 1rem;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
@@ -241,38 +289,42 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #ff6b4a);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: var(--bg-dark);
+    border: none;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    background: linear-gradient(135deg, var(--primary-dark), #ff5a3a);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+    filter: brightness(1.1);
 }
 
 .btn-secondary {
-    background: var(--bg-light);
-    color: var(--text-dark);
-    border: 1px solid var(--border-color);
+    background: rgba(0, 217, 255, 0.1);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .btn-secondary:hover {
-    background: var(--bg-lighter);
-    border-color: var(--text-dark);
+    background: rgba(0, 217, 255, 0.2);
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
 }
 
 .add-site-section {
-    background: white;
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 2rem;
-    border-left: 5px solid var(--accent-color);
+    border-left: 4px solid var(--accent-warm);
     box-shadow: var(--shadow-md);
+    border: 1px solid rgba(255, 149, 0, 0.3);
 }
 
 .add-site-section h3 {
-    color: var(--text-dark);
+    color: var(--accent-warm);
     margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(255, 149, 0, 0.3);
 }
 
 .add-site-section p {
@@ -282,7 +334,7 @@ body {
 
 .add-site-section ol {
     margin-left: 1.5rem;
-    color: var(--text-gray);
+    color: var(--text-muted);
 }
 
 .add-site-section li {
@@ -297,19 +349,24 @@ body {
 .doc-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
 }
 
 .doc-header p {
     font-size: 1.05rem;
-    color: var(--text-light);
+    color: var(--text-muted);
 }
 
 .doc-content {
-    background: white;
+    background: var(--bg-card);
     border-radius: 12px;
     padding: 2.5rem;
     box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
 }
 
 .doc-section {
@@ -327,18 +384,19 @@ body {
     color: var(--primary-color);
     margin-bottom: 1rem;
     font-weight: 700;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
 }
 
 .doc-section h4 {
     font-size: 1.1rem;
-    color: var(--text-dark);
+    color: var(--secondary-color);
     margin-top: 1.2rem;
     margin-bottom: 0.7rem;
     font-weight: 600;
 }
 
 .doc-section p {
-    color: var(--text-gray);
+    color: var(--text-light);
     margin-bottom: 1rem;
     line-height: 1.8;
 }
@@ -347,7 +405,7 @@ body {
 .doc-section ol {
     margin-left: 1.8rem;
     margin-bottom: 1rem;
-    color: var(--text-gray);
+    color: var(--text-light);
     line-height: 1.8;
 }
 
@@ -356,11 +414,12 @@ body {
 }
 
 .step-box {
-    background: #f0f9ff;
+    background: rgba(168, 85, 247, 0.1);
     border-left: 4px solid var(--secondary-color);
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1.5rem 0;
+    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 .step-box h4 {
@@ -373,28 +432,30 @@ body {
 }
 
 .code-block {
-    background: #1a202c;
-    color: #e2e8f0;
-    padding: 1rem;
-    border-radius: 6px;
+    background: #0d0f1f;
+    color: #e0e0e0;
+    padding: 1.2rem;
+    border-radius: 8px;
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     margin: 1rem 0;
     overflow-x: auto;
     line-height: 1.6;
+    border: 1px solid var(--border-color);
 }
 
 .code-block strong {
-    color: #fbbf24;
+    color: var(--accent-warm);
 }
 
 code {
-    background: var(--bg-light);
-    color: var(--primary-color);
+    background: rgba(0, 217, 255, 0.1);
+    color: var(--primary-glow);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
     font-size: 0.9em;
+    border: 1px solid rgba(0, 217, 255, 0.2);
 }
 
 .reference-table {
@@ -409,36 +470,42 @@ table {
 }
 
 thead {
-    background: var(--bg-light);
+    background: rgba(0, 217, 255, 0.05);
 }
 
 th {
     padding: 1rem;
     text-align: left;
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--primary-color);
     border-bottom: 2px solid var(--border-color);
 }
 
 td {
     padding: 1rem;
     border-bottom: 1px solid var(--border-color);
-    color: var(--text-gray);
+    color: var(--text-light);
 }
 
 tr:last-child td {
     border-bottom: none;
 }
 
+tr:hover {
+    background: rgba(0, 217, 255, 0.05);
+}
+
 .doc-summary {
-    background: linear-gradient(135deg, rgba(243, 115, 53, 0.05), rgba(16, 185, 129, 0.05));
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(168, 85, 247, 0.1));
     border-left: 4px solid var(--primary-color);
     padding: 1.5rem;
     border-radius: 8px;
+    border: 1px solid rgba(0, 217, 255, 0.2);
 }
 
 .doc-summary h3 {
-    color: var(--primary-color);
+    color: var(--primary-glow);
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.2);
 }
 
 .doc-summary ol {
@@ -447,18 +514,19 @@ tr:last-child td {
 
 .doc-summary li {
     margin-bottom: 0.8rem;
-    color: var(--text-dark);
+    color: var(--text-light);
 }
 
 a {
-    color: var(--secondary-color);
+    color: var(--primary-glow);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 a:hover {
-    color: var(--primary-color);
+    color: var(--accent-warm);
     text-decoration: underline;
+    text-shadow: 0 0 8px rgba(255, 149, 0, 0.3);
 }
 
 /* Responsive */
@@ -502,5 +570,13 @@ a:hover {
 
     code {
         font-size: 0.85em;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.7rem;
     }
 }
